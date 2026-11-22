@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survei Kesiapan TKA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand"><b>Survei TKA</b><small>Kelompok 6</small></div>
+    <div class="menu">
+      <button data-view="graf" class="aktif">Graf</button>
+      <button data-view="ringkasan">Ringkasan</button>
+      <button data-view="pernyataan">Pernyataan</button>
+      <button data-view="responden">Responden</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- GRAF -->
+    <section id="view-graf" class="view">
+      <div class="graf-box" id="graf-box">
+        <div class="tombol-graf">
+          <button id="putar" aria-label="Putar atau jeda">Jeda</button>
+          <button id="zoom-kecil" aria-label="Perkecil">-</button>
+          <button id="zoom-besar" aria-label="Perbesar">+</button>
+        </div>
+        <svg id="graf-svg"></svg>
+        <div class="popup" id="popup" hidden></div>
+      </div>
+      <p class="ket">Titik = responden, kotak = aspek. Klik untuk detail, seret untuk menggeser.</p>
+    </section>
+
+    <!-- RINGKASAN -->
+    <section id="view-ringkasan" class="view" hidden>
+      <h2>Ringkasan</h2>
+      <p class="ket">Kelas XII F8 &middot; <span id="jumlah"></span> responden &middot; 20 pernyataan Ya/Tidak</p>
+      <div class="kartu-wrap" id="ringkasan"></div>
+      <h2>Persentase Ya per Aspek</h2>
+      <div id="aspek"></div>
+    </section>
+
+    <!-- PERNYATAAN -->
+    <section id="view-pernyataan" class="view" hidden>
+      <h2>Per Pernyataan</h2>
+      <table>
+        <thead><tr><th>No</th><th>Pernyataan</th><th>Aspek</th><th>Ya</th></tr></thead>
+        <tbody id="tabel-pertanyaan"></tbody>
+      </table>
+    </section>
+
+    <!-- RESPONDEN -->
+    <section id="view-responden" class="view" hidden>
+      <h2>Daftar Responden</h2>
+      <div class="kontrol">
+        <input type="text" id="cari" placeholder="Cari nama...">
+        <select id="urut">
+          <option value="nama">Urutkan: Nama</option>
+          <option value="tinggi">Urutkan: Jawaban Ya terbanyak</option>
+          <option value="rendah">Urutkan: Jawaban Ya tersedikit</option>
+        </select>
+      </div>
+      <table>
+        <thead><tr><th>Nama</th><th>Tanggal</th><th>Ya</th><th>Tidak</th><th></th></tr></thead>
+        <tbody id="tabel-responden"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>Dibuat oleh Kelompok 6</footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
